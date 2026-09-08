@@ -1,0 +1,90 @@
+/* =====================================================================
+   THEME · IKKS — traduit de Tapbuy _root.scss (variables --tb-*)
+   À charger APRÈS tokens.css : surcharge les mêmes variables → re-skin
+   automatique du header, delivery, payment, recap et de la page checkout.
+   Retirer le <link> de ce fichier = retour au thème Qomit.
+   ===================================================================== */
+@import url('https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Roboto+Condensed:wght@400;700&display=swap');
+
+:root {
+  /* ---- Fonts (--tb-body-font-family / --tb-font-family-primary) ---- */
+  --type-family-body: "Roboto Condensed", "Helvetica Neue", Helvetica, Arial, sans-serif;
+  --type-family-brand: "Bebas Neue", "Helvetica Neue", Helvetica, Arial, sans-serif;
+  --type-family-mention: "Roboto Condensed", Helvetica, Arial, sans-serif;
+
+  /* ---- Weights (IKKS: semibold = 700) ---- */
+  --type-weight-300: 400;   /* regular / medium */
+  --type-weight-500: 700;   /* semibold -> 700 */
+  --type-weight-600: 700;   /* bold */
+
+  /* ---- Colours ---- */
+  --type-body: #000;                     /* --tb-body-color */
+  --type-color-body: #000;
+  --foreground-primary: #000;
+  --foreground-secondary: #757575;       /* --tb-faded */
+  --type-color-mention: #757575;
+  --type-information: #757575;
+  --icon-color-primary: #000;
+  --icon-color-action-secondary: #757575;
+  --bg-neutral-default: #ffffff;         /* --tb-body-bg */
+  --bg-neutral-darkest: #000000;         /* --tb-primary (CTA bg) */
+  --color-primary: #000000;              /* --tb-primary (badges, logo mark) */
+  --color-on-primary: #ffffff;
+  --color-loyalty: #000000;
+
+  /* ---- Borders ---- */
+  --border-color-default: #929292;       /* input border (gray-400) */
+  --border-color-soft: #cccccc;
+  --border-color-strong: #000000;        /* --tb-input-focus / selected */
+
+  /* ---- Feedback (--tb-success / danger / info) ---- */
+  --type-success: #12aa56;
+  --icon-success: #12aa56;
+  --feedback-error-text: #e40202;
+  --feedback-error-bg: rgba(228, 2, 2, 0.06);
+  --feedback-information-border: #0d6aff;
+  --feedback-information-bg: rgba(13, 106, 255, 0.05);
+
+  /* ---- Radius — IKKS is sharp (--tb-border-radius: 0) ---- */
+  --radius-card: 0;
+  --border-radius-default: 0;
+  --border-radius-s: 0;
+  --radius-100: 0;
+  --radius-200: 0;
+  --input-border-radius: 0;
+  --button-tertiary-radius: 0;
+  /* radios & switches stay round: --border-radius-full unchanged (1000px) */
+
+  /* ---- Toggle switch (--tb-form-switch-bg-color) ---- */
+  --toggle-bg-active: #000000;
+}
+
+/* ---------------------------------------------------------------------
+   IKKS structural rules (mirrors the retailer's own SCSS extras:
+   uppercase section titles, uppercase Bebas CTA, uppercase cart title)
+   ------------------------------------------------------------------- */
+
+/* --tb-section-title: uppercase · body font · 16px · bold */
+.checkout-section__title {
+  text-transform: uppercase;
+  font-family: var(--type-family-body);
+  font-size: 16px;
+  font-weight: var(--type-weight-600);
+  letter-spacing: 0;
+}
+
+/* --tb-cta: uppercase · Bebas Neue · regular · 50px */
+.qc-btn--primary {
+  text-transform: uppercase;
+  font-family: var(--type-family-brand);
+  font-weight: var(--type-weight-300);
+  letter-spacing: 0.04em;
+  font-size: 18px;
+  min-height: 50px;
+}
+
+/* --tb-cart-title: uppercase */
+.qc-recap__toggle-title { text-transform: uppercase; }
+
+/* Logo wordmark in the brand (display) font */
+.qc-logo__word { font-family: var(--type-family-brand); letter-spacing: 0.02em; }

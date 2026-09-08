@@ -1,0 +1,183 @@
+<!doctype html>
+<html lang="fr">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate" />
+  <meta http-equiv="Pragma" content="no-cache" />
+  <meta http-equiv="Expires" content="0" />
+  <title>Connexion — Promod</title>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="css/tokens.css?v=4" />
+  <link rel="stylesheet" href="css/reset.css?v=4" />
+  <link rel="stylesheet" href="css/header.css?v=4" />
+  <link rel="stylesheet" href="css/delivery.css?v=4" />
+  <link rel="stylesheet" href="css/payment.css?v=4" />
+  <link rel="stylesheet" href="css/recap.css?v=4" />
+  <link rel="stylesheet" href="css/checkout.css?v=4" />
+  <link rel="stylesheet" href="css/theme-promod.css?v=4" />
+  <link rel="stylesheet" href="css/login.css?v=4" />
+</head>
+<body>
+  <div class="checkout">
+    <header class="qc-header qc-header--desktop qc-header--stepper">
+      <div class="qc-header__start">
+        <a class="qc-logo qc-logo--wordmark" href="#" aria-label="Promod"><span class="qc-logo__word">PROMOD</span></a>
+      </div>
+      <nav class="qc-header__center qc-stepper" aria-label="Étapes">
+        <span class="qc-step is-active">1. Commande</span>
+        <span class="qc-stepper__line"></span>
+        <span class="qc-step">2. Paiement</span>
+      </nav>
+      <div class="qc-header__end">
+        <button class="qc-iconbtn" aria-label="Fermer" onclick="location.href='index.html'"><svg viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"><path d="M5 5l10 10M15 5 5 15"/></svg></button>
+      </div>
+    </header>
+
+    <div class="checkout__body">
+      <div class="checkout__form">
+        <!-- STEP A: email -->
+        <main class="login" id="step-email">
+          <h1 class="login__title">Bonjour,</h1>
+          <p class="login__sub">Saisissez un e-mail pour continuer</p>
+
+          <div class="login__form">
+            <div class="qc-field"><input id="email-input" type="email" placeholder="Adresse email*" required /></div>
+            <button id="to-info" class="qc-btn qc-btn--primary qc-btn--block" type="button" onclick="goToInfo()">Continuer</button>
+          </div>
+
+          <div class="login__divider"><span>Ou se connecter avec</span></div>
+
+          <div class="login__social">
+            <a class="login-social" href="checkout-promod.html" aria-label="Se connecter avec Google">
+              <svg viewBox="0 0 48 48" width="22" height="22" aria-hidden="true">
+                <path fill="#EA4335" d="M24 9.5c3.54 0 6.71 1.22 9.21 3.6l6.85-6.85C35.9 2.38 30.47 0 24 0 14.62 0 6.51 5.38 2.56 13.22l7.98 6.19C12.43 13.72 17.74 9.5 24 9.5z"/>
+                <path fill="#4285F4" d="M46.98 24.55c0-1.57-.15-3.09-.38-4.55H24v9.02h12.94c-.58 2.96-2.26 5.48-4.78 7.18l7.73 6c4.51-4.18 7.09-10.36 7.09-17.65z"/>
+                <path fill="#FBBC05" d="M10.53 28.59c-.48-1.45-.76-2.99-.76-4.59s.28-3.14.76-4.59l-7.98-6.19C.92 16.46 0 20.12 0 24c0 3.88.92 7.54 2.56 10.78l7.97-6.19z"/>
+                <path fill="#34A853" d="M24 48c6.48 0 11.93-2.13 15.89-5.81l-7.73-6c-2.15 1.45-4.92 2.3-8.16 2.3-6.26 0-11.57-4.22-13.47-9.91l-7.98 6.19C6.51 42.62 14.62 48 24 48z"/>
+              </svg>
+            </a>
+            <a class="login-social" href="checkout-promod.html" aria-label="Se connecter avec Facebook">
+              <svg viewBox="0 0 24 24" width="22" height="22" aria-hidden="true"><path fill="#1877F2" d="M24 12a12 12 0 1 0-13.88 11.85v-8.38H7.08V12h3.04V9.41c0-3 1.79-4.66 4.53-4.66 1.31 0 2.68.23 2.68.23v2.95h-1.51c-1.49 0-1.95.92-1.95 1.87V12h3.32l-.53 3.47h-2.79v8.38A12 12 0 0 0 24 12z"/></svg>
+            </a>
+            <a class="login-social" href="checkout-promod.html" aria-label="Se connecter avec Apple">
+              <svg viewBox="0 0 24 24" width="20" height="20" fill="currentColor" aria-hidden="true"><path d="M16.365 1.43c0 1.14-.417 2.19-1.11 2.98-.75.85-1.98 1.51-3.02 1.42-.13-1.09.42-2.24 1.09-2.99.75-.85 2.06-1.47 3.04-1.41zM20.5 17.06c-.55 1.27-.82 1.84-1.53 2.96-.99 1.57-2.39 3.53-4.12 3.54-1.54.01-1.94-1.01-4.03-1-2.09.01-2.53 1.02-4.07 1.01-1.73-.01-3.05-1.77-4.04-3.34C-.34 16.68-.6 11.05 1.57 8.07c1.06-1.5 2.73-2.44 4.29-2.44 1.6 0 2.6 1.02 3.92 1.02 1.28 0 2.06-1.02 3.91-1.02 1.39 0 2.86.76 3.91 2.06-3.44 1.88-2.88 6.79.9 8.37z"/></svg>
+            </a>
+          </div>
+
+          <div class="login__reassurance">
+            <div class="login__data">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                <path d="M12 3l7 3v5c0 4.5-3 7.6-7 9-4-1.4-7-4.5-7-9V6z" />
+                <rect x="9" y="11" width="6" height="5" rx="1" />
+                <path d="M10.5 11V9.6a1.5 1.5 0 0 1 3 0V11" />
+              </svg>
+              <span>Promod s'engage sur la protection de vos <a href="#">données personnelles</a></span>
+            </div>
+            <p class="login__captcha">
+              Ce site est protégé par reCAPTCHA et la <a href="#">Politique de confidentialité</a> et les
+              <a href="#">Conditions d'utilisation</a> de Google s'appliquent.
+            </p>
+          </div>
+        </main>
+
+        <!-- STEP B: delivery information form -->
+        <main class="login" id="step-info" hidden>
+          <h1 class="login__title">Vos informations de livraison</h1>
+          <p class="login__guest"><strong>Vous commandez en tant qu'invité</strong>, vous pourrez créer un compte plus tard si vous le souhaitez.</p>
+          <p class="login__required">*champ obligatoire</p>
+
+          <form class="qc-form" action="checkout-promod.html" method="get">
+            <div class="qc-field qc-field--filled">
+              <span class="qc-field__floating">Adresse email*</span>
+              <input id="info-email" type="email" value="jeanne@gmail.com" />
+            </div>
+            <div class="qc-field qc-field--between">
+              <span class="qc-field__label">Civilité*</span>
+              <span class="qc-radio-group">
+                <label><input class="qc-radio" type="radio" name="civ" /> M.</label>
+                <label><input class="qc-radio" type="radio" name="civ" /> Mme.</label>
+                <label><input class="qc-radio" type="radio" name="civ" /> Autre</label>
+              </span>
+            </div>
+            <div class="qc-field"><input type="text" placeholder="Prénom*" /></div>
+            <div class="qc-field"><input type="text" placeholder="Nom*" /></div>
+            <div class="qc-field"><input type="text" placeholder="Adresse*" /></div>
+            <div class="qc-field"><input type="text" placeholder="Bâtiment, étage, entreprise (facultatif)" /></div>
+            <div class="qc-field-row">
+              <div class="qc-field"><input type="text" placeholder="Code postal*" /></div>
+              <div class="qc-field"><input type="text" placeholder="Ville*" /></div>
+            </div>
+            <div class="qc-field qc-field--filled">
+              <span class="qc-field__floating">Pays</span>
+              <input type="text" value="France" readonly />
+              <span class="qc-field__trailing">
+                <svg width="16" height="16" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"><path d="M4 6l4 4 4-4"/></svg>
+              </span>
+            </div>
+            <div class="qc-field">
+              <span class="qc-field__flag">
+                <span class="qc-flag"><i></i><i></i><i></i></span>
+                <svg width="12" height="12" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"><path d="M4 6l4 4 4-4"/></svg>
+              </span>
+              <input type="tel" placeholder="Phone number* (ex: 06 83 24 53 23)" />
+            </div>
+            <label class="checkout-cgv">
+              <input type="checkbox" class="qc-checkbox" checked />
+              <span>Adresse de facturation identique</span>
+            </label>
+            <button class="qc-btn qc-btn--primary qc-btn--block" type="submit">Continuer vers la livraison</button>
+          </form>
+        </main>
+      </div>
+
+      <!-- RIGHT: order recap -->
+      <div class="checkout__recap">
+        <section class="qc-recap qc-recap--desktop" aria-label="Récapitulatif de commande">
+          <ul class="qc-recap__items">
+            <li class="qc-recap__item">
+              <div class="qc-recap__thumb" style="background-image:url('assets/bermuda.png');background-position:top center"><span class="qc-recap__qty">1</span></div>
+              <div class="qc-recap__info">
+                <div class="qc-recap__title-row"><span class="qc-recap__title">Bermuda en jean Femme</span></div>
+                <div class="qc-recap__variant">Taille 36 - Carreaux Vert Foncé</div>
+                <a class="qc-link" href="#">Modifier</a>
+              </div>
+              <div class="qc-recap__price"><span class="qc-recap__price-main">39,99 €</span></div>
+            </li>
+            <li class="qc-recap__item">
+              <div class="qc-recap__thumb" style="background-image:url('assets/blouse.png');background-position:top center"><span class="qc-recap__qty">1</span></div>
+              <div class="qc-recap__info">
+                <div class="qc-recap__title-row"><span class="qc-recap__title">Blouse plissée romantique</span></div>
+                <div class="qc-recap__variant">Taille 36 - Ecru</div>
+                <a class="qc-link" href="#">Modifier</a>
+              </div>
+              <div class="qc-recap__price"><span class="qc-recap__price-main">35,99 €</span></div>
+            </li>
+          </ul>
+          <hr class="qc-recap__divider" />
+          <dl class="qc-recap__summary">
+            <div class="qc-recap__row"><dt>Sous-total (2 articles)</dt><dd class="qc-recap__value--strong">75,98 €</dd></div>
+            <div class="qc-recap__row"><dt>Livraison</dt><dd>Offert</dd></div>
+            <div class="qc-recap__row"><dt>Code promo</dt><dd><a class="qc-link" href="#">Ajouter</a></dd></div>
+          </dl>
+          <hr class="qc-recap__divider" />
+          <div class="qc-recap__total"><span>Total</span><span>75,98 €</span></div>
+        </section>
+      </div>
+    </div>
+  </div>
+
+  <script>
+    function goToInfo() {
+      var emailInput = document.getElementById('email-input');
+      var v = (emailInput.value || '').trim();
+      if (!v) { emailInput.focus(); return; }
+      var infoEmail = document.getElementById('info-email');
+      if (infoEmail) infoEmail.value = v;
+      document.getElementById('step-email').style.display = 'none';
+      document.getElementById('step-info').style.display = 'flex';
+      window.scrollTo(0, 0);
+    }
+  </script>
+</body>
+</html>

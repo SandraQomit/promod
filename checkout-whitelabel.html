@@ -1,0 +1,300 @@
+<!doctype html>
+<html lang="fr">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Checkout — Whitelabel</title>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="css/tokens.css" />
+  <link rel="stylesheet" href="css/reset.css" />
+  <link rel="stylesheet" href="css/header.css" />
+  <link rel="stylesheet" href="css/recap.css" />
+  <link rel="stylesheet" href="css/delivery.css" />
+  <link rel="stylesheet" href="css/payment.css" />
+  <link rel="stylesheet" href="css/checkout.css" />
+</head>
+<body>
+  <template id="qc-logo">
+    <a class="qc-logo" href="#" aria-label="Qomit">
+      <span class="qc-logo__mark">
+        <svg viewBox="0 0 26 26" width="18" height="18" aria-hidden="true"><path d="M13 1c0 6.6 5.4 12 12 12-6.6 0-12 5.4-12 12 0-6.6-5.4-12-12-12 6.6 0 12-5.4 12-12z"/></svg>
+      </span>
+      <span class="qc-logo__word">Qomit</span>
+    </a>
+  </template>
+
+  <template id="recap-lines">
+    <ul class="qc-recap__items">
+      <li class="qc-recap__item">
+        <div class="qc-recap__thumb"><span class="qc-recap__qty">3</span></div>
+        <div class="qc-recap__info">
+          <div class="qc-recap__title-row"><span class="qc-recap__title">Ciré long intérieur duveteux</span></div>
+          <div class="qc-recap__variant">XS - Midnight Blue</div>
+          <a class="qc-link" href="#">Modifier</a>
+        </div>
+        <div class="qc-recap__price"><span class="qc-recap__price-note">3 × 78 €</span><span class="qc-recap__price-main">79,99 €</span></div>
+      </li>
+      <li class="qc-recap__item">
+        <div class="qc-recap__thumb"><span class="qc-recap__qty">1</span></div>
+        <div class="qc-recap__info">
+          <div class="qc-recap__title-row"><span class="qc-recap__title">Ciré long intérieur duveteux</span></div>
+          <div class="qc-recap__variant">XS - Midnight Blue</div>
+          <a class="qc-link" href="#">Modifier</a>
+        </div>
+        <div class="qc-recap__price"><span class="qc-recap__price-main">79,99 €</span></div>
+      </li>
+      <li class="qc-recap__item">
+        <div class="qc-recap__thumb"><span class="qc-recap__qty">1</span></div>
+        <div class="qc-recap__info">
+          <div class="qc-recap__title-row"><span class="qc-recap__title">Ciré long intérieur duveteux</span><span class="qc-badge-discount">20%</span></div>
+          <div class="qc-recap__variant">XS - Midnight Blue</div>
+          <a class="qc-link" href="#">Modifier</a>
+        </div>
+        <div class="qc-recap__price"><span class="qc-recap__price-note qc-recap__price-note--struck">79,99 €</span><span class="qc-recap__price-main">79,99 €</span></div>
+      </li>
+    </ul>
+  </template>
+
+  <div class="checkout">
+    <!-- Header -->
+    <header class="qc-header qc-header--desktop qc-header--stepper">
+      <div class="qc-header__start" data-logo></div>
+      <nav class="qc-header__center qc-stepper" aria-label="Étapes">
+        <span class="qc-step is-active">1. Commande</span>
+        <span class="qc-stepper__line"></span>
+        <span class="qc-step">2. Paiement</span>
+      </nav>
+      <div class="qc-header__end">
+        <button class="qc-iconbtn" aria-label="Fermer"><svg viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"><path d="M5 5l10 10M15 5 5 15"/></svg></button>
+      </div>
+    </header>
+
+    <div class="checkout__body">
+
+      <!-- Mobile collapsible recap (shown < 900px) -->
+      <div class="checkout__recap-mobile">
+        <section class="qc-recap qc-recap--mobile" data-open="false" data-collapsible aria-label="Récapitulatif">
+          <button class="qc-recap__toggle" aria-expanded="false">
+            <span class="qc-recap__toggle-title">Ma commande (5 articles)</span>
+            <span class="qc-recap__toggle-right"><span class="qc-recap__toggle-total">333,98 €</span>
+              <svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"><path d="M4 6l4 4 4-4"/></svg></span>
+          </button>
+          <div class="qc-recap__body">
+            <div data-recap-lines></div>
+            <hr class="qc-recap__divider" style="margin:0" />
+            <dl class="qc-recap__summary">
+              <div class="qc-recap__row"><dt>Sous-total (5 articles)</dt><dd class="qc-recap__value--strong">333,98 €</dd></div>
+              <div class="qc-recap__row"><dt>Livraison</dt><dd>Chronopost - Offert</dd></div>
+              <div class="qc-recap__row"><dt>Code promo</dt><dd><a class="qc-link" href="#">Ajouter</a></dd></div>
+            </dl>
+            <hr class="qc-recap__divider" style="margin:0" />
+            <div class="qc-recap__total"><span>Total</span><span>333,98 €</span></div>
+          </div>
+        </section>
+      </div>
+
+      <!-- FORM column -->
+      <div class="checkout__form">
+
+        <section class="checkout-section">
+          <h2 class="checkout-section__title">Livraison</h2>
+          <div class="qc-delivery" data-delivery>
+
+            <!-- A domicile Express — selected/expanded -->
+            <div class="qc-delivery-option is-selected">
+              <button class="qc-delivery-option__header" type="button">
+                <input class="qc-radio" type="radio" name="delivery" checked aria-label="À domicile express" />
+                <span class="qc-delivery-option__titles">
+                  <span class="qc-delivery-option__titlerow">
+                    <span class="qc-delivery-option__titleleft"><span class="qc-delivery-option__title">À domicile - Express</span><span class="qc-carrier"><span class="qc-carrier__mark" style="background:#1b3a8b"></span>chronopost</span></span>
+                    <span class="qc-delivery-option__price">Offert</span>
+                  </span>
+                  <span class="qc-delivery-option__subtitle">Livraison estimée le mardi 8 septembre</span>
+                </span>
+              </button>
+              <div class="qc-delivery-option__body">
+                <div class="qc-address-box">
+                  <div class="qc-address-box__title">Jeanne durand</div>
+                  <div class="qc-address-box__line">851 Rue de Sources, 14200 Hérouville Saint-Clair</div>
+                  <div class="qc-address-box__line">+33 6 83 99 19 09</div>
+                  <a class="qc-link" href="#">Modifier</a>
+                </div>
+                <div class="qc-instructions" data-instructions>
+                  <button class="qc-delivery-option__instructions" type="button" aria-expanded="false">
+                    Instructions de livraison (facultatif)
+                    <svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"><path d="M4 6l4 4 4-4"/></svg>
+                  </button>
+                  <div class="qc-instructions__body">
+                    <textarea class="qc-textarea" maxlength="70" placeholder="Digicode, interphone, étage …"></textarea>
+                    <div class="qc-instructions__count"><span data-count>0</span>/70</div>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <!-- A domicile Standard -->
+            <div class="qc-delivery-option">
+              <button class="qc-delivery-option__header" type="button">
+                <input class="qc-radio" type="radio" name="delivery" aria-label="À domicile standard" />
+                <span class="qc-delivery-option__titles">
+                  <span class="qc-delivery-option__titlerow">
+                    <span class="qc-delivery-option__titleleft"><span class="qc-delivery-option__title">À domicile - Standard</span><span class="qc-carrier"><span class="qc-carrier__mark"></span>colissimo</span></span>
+                    <span class="qc-delivery-option__price">Offert</span>
+                  </span>
+                  <span class="qc-delivery-option__subtitle">Livraison estimée le mardi 8 septembre</span>
+                </span>
+              </button>
+              <div class="qc-delivery-option__body"></div>
+            </div>
+
+            <!-- Point relais -->
+            <div class="qc-delivery-option">
+              <button class="qc-delivery-option__header" type="button">
+                <input class="qc-radio" type="radio" name="delivery" aria-label="En point relais" />
+                <span class="qc-delivery-option__titles">
+                  <span class="qc-delivery-option__titlerow">
+                    <span class="qc-delivery-option__titleleft"><span class="qc-delivery-option__title">En point relais</span></span>
+                    <span class="qc-delivery-option__price">2,30 €</span>
+                  </span>
+                  <span class="qc-delivery-option__subtitle">Livraison estimée le mardi 8 septembre</span>
+                </span>
+              </button>
+              <div class="qc-delivery-option__body">
+                <div class="qc-address-box">
+                  <div class="qc-address-box__title">Adresse du magasin</div>
+                  <div class="qc-address-box__line">Consigne Elephant Blue Bernay</div>
+                  <div class="qc-address-box__line">Route de Broglie, 27300 Bernay</div>
+                  <span class="qc-address-box__toggle">Horaires
+                    <svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"><path d="M4 6l4 4 4-4"/></svg>
+                  </span>
+                  <a class="qc-link" href="#">Modifier</a>
+                </div>
+                <div class="qc-field-label">Commande retirée par</div>
+                <form class="qc-form" onsubmit="return false">
+                  <div class="qc-field qc-field--between">
+                    <span class="qc-field__label">Civilité*</span>
+                    <span class="qc-radio-group">
+                      <label><input class="qc-radio" type="radio" name="civ-pr" /> M.</label>
+                      <label><input class="qc-radio" type="radio" name="civ-pr" /> Mme.</label>
+                      <label><input class="qc-radio" type="radio" name="civ-pr" /> Autre</label>
+                    </span>
+                  </div>
+                  <div class="qc-field"><input type="text" placeholder="Prénom*" /></div>
+                  <div class="qc-field"><input type="text" placeholder="Nom*" /></div>
+                  <div class="qc-field">
+                    <span class="qc-field__flag">
+                      <span class="qc-flag"><i></i><i></i><i></i></span>
+                      <svg width="12" height="12" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"><path d="M4 6l4 4 4-4"/></svg>
+                    </span>
+                    <input type="tel" placeholder="Phone number* (ex: 06 83 24 53 23)" />
+                  </div>
+                  <button class="qc-btn qc-btn--tertiary qc-btn--block" type="submit">Valider</button>
+                </form>
+              </div>
+            </div>
+
+            <!-- En magasin -->
+            <div class="qc-delivery-option">
+              <button class="qc-delivery-option__header" type="button">
+                <input class="qc-radio" type="radio" name="delivery" aria-label="En magasin" />
+                <span class="qc-delivery-option__titles">
+                  <span class="qc-delivery-option__titlerow">
+                    <span class="qc-delivery-option__titleleft"><span class="qc-delivery-option__title">En magasin</span></span>
+                    <span class="qc-delivery-option__price">Offert</span>
+                  </span>
+                  <span class="qc-delivery-option__subtitle">Livraison estimée le mardi 8 septembre</span>
+                </span>
+              </button>
+              <div class="qc-delivery-option__body"></div>
+            </div>
+
+          </div>
+        </section>
+
+        <section class="checkout-section">
+          <h2 class="checkout-section__title">Paiement</h2>
+          <div class="qc-payment" data-payment>
+            <div class="qc-pay-option"><button class="qc-pay-option__header" type="button"><input class="qc-radio" type="radio" name="pay" aria-label="Carte bancaire" /><span class="qc-pay-option__title">Carte bancaire</span><span class="qc-pay-option__spacer"></span><span class="qc-pay-option__marks"><span class="qc-brand qc-brand--visa">VISA</span><span class="qc-brand qc-brand--mc">MC</span></span></button><div class="qc-pay-option__body"></div></div>
+            <div class="qc-pay-option"><button class="qc-pay-option__header" type="button"><input class="qc-radio" type="radio" name="pay" aria-label="PayPal" /><span class="qc-pay-option__title">PayPal</span><span class="qc-pay-option__spacer"></span><span class="qc-brand qc-brand--paypal">PayPal</span></button><div class="qc-pay-option__body"></div></div>
+            <div class="qc-pay-option"><button class="qc-pay-option__header" type="button"><input class="qc-radio" type="radio" name="pay" aria-label="Alma" /><span class="qc-pay-option__title">Alma</span><span class="qc-pay-option__note">Paiement en 2X, 3X sans frais</span><span class="qc-pay-option__spacer"></span><span class="qc-brand qc-brand--alma">alma</span></button><div class="qc-pay-option__body"></div></div>
+            <div class="qc-pay-option"><button class="qc-pay-option__header" type="button"><input class="qc-radio" type="radio" name="pay" aria-label="Google Pay" /><span class="qc-pay-option__title">Google Pay</span><span class="qc-pay-option__spacer"></span><span class="qc-brand qc-brand--googlepay">G Pay</span></button><div class="qc-pay-option__body"></div></div>
+            <div class="qc-pay-option"><button class="qc-pay-option__header" type="button"><input class="qc-radio" type="radio" name="pay" aria-label="Apple Pay" /><span class="qc-pay-option__title">Apple Pay</span><span class="qc-pay-option__spacer"></span><span class="qc-brand qc-brand--applepay"> Pay</span></button><div class="qc-pay-option__body"></div></div>
+            <div class="qc-pay-option"><button class="qc-pay-option__header" type="button"><input class="qc-radio" type="radio" name="pay" aria-label="Carte cadeau" /><span class="qc-pay-option__title">Carte cadeau</span><span class="qc-pay-option__spacer"></span><span class="qc-brand qc-brand--gift">R</span><span class="qc-pay-option__chevron"><svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"><path d="M4 6l4 4 4-4"/></svg></span></button><div class="qc-pay-option__body"></div></div>
+          </div>
+        </section>
+
+        <div class="checkout-action">
+          <label class="checkout-cgv">
+            <input type="checkbox" class="qc-checkbox" checked />
+            <span>J'accepte les <a class="qc-link" href="#">conditions générales de vente</a></span>
+          </label>
+          <button class="qc-btn qc-btn--primary qc-btn--block" type="button">Payer 79,99 €</button>
+        </div>
+
+        <div class="qc-secured qc-secured--desktop">
+          <span class="qc-secured__label"><svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.3"><rect x="3.5" y="7" width="9" height="6" rx="1"/><path d="M5.5 7V5a2.5 2.5 0 0 1 5 0v2"/></svg> Paiement 100% sécurisé</span>
+          <span class="qc-secured__marks"><span class="qc-brand qc-brand--visa">VISA</span><span class="qc-brand qc-brand--mc">MC</span><span class="qc-brand">CB</span><span class="qc-brand qc-brand--amex">AMEX</span></span>
+        </div>
+      </div>
+
+      <!-- RECAP column (desktop) -->
+      <div class="checkout__recap">
+        <section class="qc-recap qc-recap--desktop" aria-label="Récapitulatif de commande">
+          <div data-recap-lines></div>
+          <hr class="qc-recap__divider" />
+          <dl class="qc-recap__summary">
+            <div class="qc-recap__row"><dt>Sous-total (5 articles)</dt><dd class="qc-recap__value--strong">333,98 €</dd></div>
+            <div class="qc-recap__row"><dt>Livraison</dt><dd>Chronopost - Offert</dd></div>
+            <div class="qc-recap__row"><dt>Code promo</dt><dd><a class="qc-link" href="#">Ajouter</a></dd></div>
+          </dl>
+          <hr class="qc-recap__divider" />
+          <div class="qc-recap__total"><span>Total</span><span>333,98 €</span></div>
+        </section>
+      </div>
+
+    </div>
+  </div>
+
+  <script>
+    const logoTpl = document.getElementById('qc-logo');
+    document.querySelectorAll('[data-logo]').forEach((s) => s.appendChild(logoTpl.content.cloneNode(true)));
+    const linesTpl = document.getElementById('recap-lines');
+    document.querySelectorAll('[data-recap-lines]').forEach((s) => s.appendChild(linesTpl.content.cloneNode(true)));
+
+    document.querySelectorAll('[data-collapsible] .qc-recap__toggle').forEach((btn) => {
+      btn.addEventListener('click', () => {
+        const p = btn.closest('[data-collapsible]');
+        const open = p.getAttribute('data-open') === 'true';
+        p.setAttribute('data-open', String(!open));
+        btn.setAttribute('aria-expanded', String(!open));
+      });
+    });
+    const wire = (groupSel, optSel, headSel) => document.querySelectorAll(groupSel).forEach((g) => {
+      const opts = [...g.querySelectorAll(optSel)];
+      opts.forEach((opt) => opt.querySelector(headSel).addEventListener('click', () => {
+        opts.forEach((o) => {
+          const on = o === opt;
+          o.classList.toggle('is-selected', on);
+          const r = o.querySelector(headSel + ' .qc-radio');
+          if (r) r.checked = on;
+        });
+      }));
+    });
+    wire('[data-delivery]', '.qc-delivery-option', '.qc-delivery-option__header');
+    wire('[data-payment]', '.qc-pay-option', '.qc-pay-option__header');
+
+    // Instructions de livraison: collapsible textarea + char counter
+    document.querySelectorAll('[data-instructions]').forEach((w) => {
+      const btn = w.querySelector('.qc-delivery-option__instructions');
+      btn.addEventListener('click', (e) => {
+        e.stopPropagation();
+        const open = w.classList.toggle('is-open');
+        btn.setAttribute('aria-expanded', String(open));
+      });
+      const ta = w.querySelector('.qc-textarea');
+      const cnt = w.querySelector('[data-count]');
+      if (ta && cnt) ta.addEventListener('input', () => { cnt.textContent = ta.value.length; });
+    });
+  </script>
+</body>
+</html>

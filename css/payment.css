@@ -1,0 +1,230 @@
+/* =====================================================================
+   COMPONENT · Payment Modules (choix du moyen de paiement)
+   Radio cards: CB (+ card form), Apple/Google Pay, PayPal, Alma, Gift card.
+   + secured-payment block. Reuses .qc-radio / .qc-field / .qc-btn / .qc-link.
+   New primitives: .qc-field--filled, .qc-toggle, .qc-success, .qc-brand.
+   All values from tokens.css.
+   ===================================================================== */
+
+.qc-payment {
+  display: flex;
+  flex-direction: column;
+  gap: var(--gap-400);
+  font-family: var(--type-family-body);
+  color: var(--type-body);
+  width: 100%;
+  max-width: 420px;
+}
+
+/* ---- Option card ------------------------------------------------ */
+.qc-pay-option {
+  border: var(--border-width-default) solid var(--border-color-default);
+  border-radius: var(--radius-card);
+  background: var(--bg-neutral-default);
+  padding: var(--padding-500);
+  display: flex;
+  flex-direction: column;
+  gap: var(--gap-500);
+}
+.qc-pay-option.is-selected {
+  border: var(--border-width-selected) solid var(--border-color-strong);
+}
+.qc-pay-option:not(.is-selected) .qc-pay-option__body { display: none; }
+
+.qc-pay-option__header {
+  display: flex;
+  align-items: center;
+  gap: var(--gap-400);
+  width: 100%;
+  text-align: left;
+  min-height: 24px;
+}
+.qc-pay-option__title {
+  font-size: var(--type-size-body-02);
+  font-weight: var(--type-weight-600);
+  color: var(--type-body);
+  text-transform: uppercase;
+  letter-spacing: 0.2px;
+  white-space: nowrap;
+}
+.qc-pay-option__note {
+  font-size: var(--type-size-body-02);
+  color: var(--foreground-secondary);
+}
+.qc-pay-option__spacer { flex: 1; }
+.qc-pay-option__marks { display: inline-flex; align-items: center; gap: var(--gap-200); }
+.qc-pay-option__chevron { color: var(--icon-color-primary); display: inline-grid; place-items: center; }
+.qc-pay-option__chevron svg { width: 16px; height: 16px; }
+
+.qc-pay-option__body {
+  display: flex;
+  flex-direction: column;
+  gap: var(--gap-500);
+}
+
+/* ---- Address box edit (pencil) ---------------------------------- */
+.qc-address-box--edit { position: relative; }
+.qc-address-box__edit {
+  position: absolute;
+  top: var(--gap-400);
+  right: var(--gap-400);
+  color: var(--icon-color-primary);
+}
+.qc-address-box__edit svg { width: 16px; height: 16px; }
+
+/* ---- Two-column field row --------------------------------------- */
+.qc-field-row {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
+  gap: var(--gap-400);
+}
+
+/* ---- Filled input (floating label) ------------------------------ */
+.qc-field--filled {
+  flex-direction: column;
+  align-items: stretch;
+  justify-content: center;
+  gap: 2px;
+  min-height: var(--input-height-l);
+  padding: var(--container-padding-3xs, 6px) var(--input-padding-x);
+  background: var(--input-bg-filled);
+  border: var(--input-border-width-filled) solid var(--input-border-color-filled);
+  position: relative;
+}
+.qc-field--filled .qc-field__floating {
+  font-size: var(--type-size-mention);
+  color: var(--input-placeholder);
+}
+.qc-field--filled input {
+  font-size: var(--type-size-body-01);
+  color: var(--input-text);
+  border: none;
+  background: none;
+  outline: none;
+  padding: 0;
+  width: 100%;
+}
+.qc-field__trailing {
+  position: absolute;
+  right: var(--input-padding-x);
+  top: 50%;
+  transform: translateY(-50%);
+  display: inline-flex;
+  align-items: center;
+}
+
+/* card icon inside inputs */
+.qc-card-icon {
+  width: 26px;
+  height: 16px;
+  border-radius: 2px;
+  background: var(--bg-neutral-emphasized);
+  flex: none;
+}
+
+/* ---- Toggle switch ---------------------------------------------- */
+.qc-toggle-row {
+  display: flex;
+  align-items: center;
+  gap: var(--gap-300);
+}
+.qc-toggle {
+  --_w: 36px;
+  --_h: 20px;
+  width: var(--_w);
+  height: var(--_h);
+  border-radius: var(--border-radius-full);
+  background: var(--border-color-default);
+  position: relative;
+  flex: none;
+  transition: background 0.15s ease;
+}
+.qc-toggle__knob {
+  position: absolute;
+  top: 2px;
+  left: 2px;
+  width: calc(var(--_h) - 4px);
+  height: calc(var(--_h) - 4px);
+  border-radius: var(--border-radius-full);
+  background: var(--bg-neutral-default);
+  transition: transform 0.15s ease;
+}
+.qc-toggle[aria-pressed="true"] { background: var(--toggle-bg-active); }
+.qc-toggle[aria-pressed="true"] .qc-toggle__knob { transform: translateX(calc(var(--_w) - var(--_h))); }
+.qc-toggle-row__label { font-size: var(--type-size-body-02); color: var(--type-body); }
+
+/* ---- Saved card row --------------------------------------------- */
+.qc-savedcard {
+  display: flex;
+  align-items: center;
+  gap: var(--gap-400);
+}
+.qc-savedcard__info { display: flex; flex-direction: column; }
+.qc-savedcard__name { font-size: var(--type-size-body-02); color: var(--type-body); }
+.qc-savedcard__exp { font-size: var(--type-size-mention); color: var(--foreground-secondary); }
+.qc-savedcard__del { margin-left: auto; color: var(--icon-color-primary); }
+.qc-savedcard__del svg { width: 16px; height: 16px; }
+.qc-collapse-head {
+  display: flex; align-items: center; justify-content: space-between;
+  font-size: var(--type-size-body-02); color: var(--type-body);
+  padding-bottom: var(--gap-300);
+  border-bottom: var(--border-width-default) solid var(--border-color-soft);
+}
+.qc-collapse-head svg { width: 16px; height: 16px; }
+
+/* ---- Success line ----------------------------------------------- */
+.qc-success {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--gap-200);
+  font-size: var(--type-size-body-02);
+  color: var(--type-success);
+}
+.qc-success svg { width: 16px; height: 16px; color: var(--icon-success); }
+
+.qc-pay-amount { font-size: var(--type-size-body-01); font-weight: var(--type-weight-600); }
+
+/* ---- Brand marks (approx placeholders) -------------------------- */
+.qc-brand {
+  display: inline-grid;
+  place-items: center;
+  height: 16px;
+  padding: 0 4px;
+  min-width: 26px;
+  border-radius: 2px;
+  font-family: var(--type-family-body);
+  font-size: 8px;
+  font-weight: var(--type-weight-600);
+  letter-spacing: 0.3px;
+  border: var(--border-width-default) solid var(--border-color-soft);
+  background: var(--bg-neutral-default);
+  color: var(--type-body);
+}
+.qc-brand--visa { color: #1a1f71; border-color: #1a1f71; }
+.qc-brand--mc { color: #eb5f07; border-color: #eb5f07; }
+.qc-brand--amex { color: #2e77bc; border-color: #2e77bc; }
+.qc-brand--applepay,
+.qc-brand--googlepay { color: var(--type-body); border-color: var(--border-color-default); }
+.qc-brand--paypal { color: #003087; border-color: #003087; }
+.qc-brand--alma { color: #ff5a5f; border-color: #ff5a5f; }
+.qc-brand--gift { color: #e2001a; border-color: #e2001a; }
+.qc-brand--bc { color: #005498; border-color: #005498; }
+
+/* ---- Secured payment block -------------------------------------- */
+.qc-secured {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: var(--gap-300);
+  padding: var(--gap-400);
+}
+.qc-secured__label {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--gap-200);
+  font-size: var(--type-size-body-02);
+  color: var(--type-body);
+}
+.qc-secured__label svg { width: 14px; height: 14px; }
+.qc-secured__marks { display: inline-flex; align-items: center; gap: var(--gap-200); }
+.qc-secured--desktop { flex-direction: row; justify-content: center; }

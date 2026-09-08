@@ -1,0 +1,95 @@
+/* =====================================================================
+   PROMOD — méthodes livraison/paiement en liste "navigation"
+   (icône à gauche · texte · chevron à droite). Tokens only.
+   ===================================================================== */
+
+.pmd-list {
+  display: flex;
+  flex-direction: column;
+  gap: var(--gap-400);
+}
+
+.pmd-method {
+  display: grid;
+  grid-template-columns: 44px 1fr auto;
+  gap: var(--gap-400);
+  align-items: start;
+  width: 100%;
+  text-align: left;
+  padding: var(--padding-500);
+  border: var(--border-width-default) solid var(--border-color-soft);
+  border-radius: var(--radius-card);
+  background: var(--bg-neutral-default);
+  cursor: pointer;
+  transition: border-color 0.15s ease;
+}
+.pmd-method:hover { border-color: var(--border-color-default); }
+
+.pmd-method__icon {
+  display: grid;
+  place-items: center;
+  align-self: start;
+  color: var(--icon-color-primary);
+}
+.pmd-method__icon svg { width: 24px; height: 24px; }
+
+.pmd-method__body {
+  display: flex;
+  flex-direction: column;
+  gap: 3px;
+  min-width: 0;
+}
+.pmd-method__chevron {
+  align-self: center;
+  display: grid;
+  place-items: center;
+  color: var(--type-body);
+}
+.pmd-method__chevron svg { width: 18px; height: 18px; }
+
+.pmd-title {
+  font-size: 16px;
+  font-weight: var(--type-weight-600);
+  color: var(--type-body);
+}
+.pmd-desc {
+  font-size: 14px;
+  font-style: italic;
+  color: var(--foreground-secondary);
+}
+.pmd-line {
+  font-size: 14px;
+  color: var(--foreground-secondary);
+}
+.pmd-line strong { color: var(--type-body); font-weight: var(--type-weight-600); }
+.pmd-price {
+  font-size: 14px;
+  font-weight: var(--type-weight-600);
+  color: var(--type-body);
+}
+.pmd-badge {
+  align-self: flex-start;
+  margin-top: 3px;
+  display: inline-block;
+  padding: 3px 10px;
+  border-radius: var(--border-radius-full);
+  background: #7fd9a8;
+  color: #0a3d2a;
+  font-size: 14px;
+  font-weight: var(--type-weight-600);
+}
+
+/* payment marks in the icon slot */
+.pmd-chip--alma {
+  display: inline-grid;
+  place-items: center;
+  background: #111111;
+  color: #ffffff;
+  font-size: 8px;
+  font-weight: 700;
+  letter-spacing: 0.02em;
+  padding: 3px 5px;
+  border-radius: 4px;
+  white-space: nowrap;
+}
+.pmd-glyph { color: #111111; }

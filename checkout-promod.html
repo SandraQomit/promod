@@ -1,0 +1,299 @@
+<!doctype html>
+<html lang="fr">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Checkout — Promod</title>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="css/tokens.css" />
+  <link rel="stylesheet" href="css/reset.css" />
+  <link rel="stylesheet" href="css/header.css" />
+  <link rel="stylesheet" href="css/recap.css" />
+  <link rel="stylesheet" href="css/delivery.css" />
+  <link rel="stylesheet" href="css/payment.css" />
+  <link rel="stylesheet" href="css/checkout.css" />
+  <!-- Thème Promod : surcharge tokens.css. -->
+  <link rel="stylesheet" href="css/theme-promod.css" />
+</head>
+<body>
+  <template id="qc-logo">
+    <a class="qc-logo qc-logo--wordmark" href="#" aria-label="Promod">
+      <span class="qc-logo__word">PROMOD</span>
+    </a>
+  </template>
+
+  <template id="recap-lines">
+    <ul class="qc-recap__items">
+      <li class="qc-recap__item">
+        <div class="qc-recap__thumb" style="background-image:url('assets/bermuda.png');background-position:top center"><span class="qc-recap__qty">1</span></div>
+        <div class="qc-recap__info">
+          <div class="qc-recap__title-row"><span class="qc-recap__title">Bermuda en jean Femme</span></div>
+          <div class="qc-recap__variant">Taille 36 - Carreaux Vert Foncé</div>
+          <a class="qc-link" href="#">Modifier</a>
+        </div>
+        <div class="qc-recap__price"><span class="qc-recap__price-main">39,99 €</span></div>
+      </li>
+      <li class="qc-recap__item">
+        <div class="qc-recap__thumb" style="background-image:url('assets/blouse.png');background-position:top center"><span class="qc-recap__qty">1</span></div>
+        <div class="qc-recap__info">
+          <div class="qc-recap__title-row"><span class="qc-recap__title">Blouse plissée romantique</span></div>
+          <div class="qc-recap__variant">Taille 36 - Ecru</div>
+          <a class="qc-link" href="#">Modifier</a>
+        </div>
+        <div class="qc-recap__price"><span class="qc-recap__price-main">35,99 €</span></div>
+      </li>
+    </ul>
+  </template>
+
+  <div class="checkout">
+    <!-- Header -->
+    <header class="qc-header qc-header--desktop qc-header--stepper">
+      <div class="qc-header__start" data-logo></div>
+      <nav class="qc-header__center qc-stepper" aria-label="Étapes">
+        <span class="qc-step is-active">1. Commande</span>
+        <span class="qc-stepper__line"></span>
+        <span class="qc-step">2. Paiement</span>
+      </nav>
+      <div class="qc-header__end">
+        <button class="qc-iconbtn" aria-label="Fermer"><svg viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"><path d="M5 5l10 10M15 5 5 15"/></svg></button>
+      </div>
+    </header>
+
+    <div class="checkout__body">
+
+      <!-- Mobile collapsible recap (shown < 900px) -->
+      <div class="checkout__recap-mobile">
+        <section class="qc-recap qc-recap--mobile" data-open="false" data-collapsible aria-label="Récapitulatif">
+          <button class="qc-recap__toggle" aria-expanded="false">
+            <span class="qc-recap__toggle-title">Ma commande (2 articles)</span>
+            <span class="qc-recap__toggle-right"><span class="qc-recap__toggle-total" data-total-value>74,98 €</span>
+              <svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"><path d="M4 6l4 4 4-4"/></svg></span>
+          </button>
+          <div class="qc-recap__body">
+            <div data-recap-lines></div>
+            <hr class="qc-recap__divider" style="margin:0" />
+            <dl class="qc-recap__summary">
+              <div class="qc-recap__row"><dt>Sous-total (2 articles)</dt><dd class="qc-recap__value--strong">75,98 €</dd></div>
+              <div class="qc-recap__row"><dt>Livraison</dt><dd data-ship-value>-1,00 €</dd></div>
+              <div class="qc-recap__row"><dt>Code promo</dt><dd><a class="qc-link" href="#">Ajouter</a></dd></div>
+            </dl>
+            <hr class="qc-recap__divider" style="margin:0" />
+            <div class="qc-recap__total"><span>Total</span><span data-total-value>74,98 €</span></div>
+          </div>
+        </section>
+      </div>
+
+      <!-- FORM column -->
+      <div class="checkout__form">
+
+        <section class="checkout-section">
+          <h2 class="checkout-section__title">Livraison</h2>
+          <div class="qc-delivery" data-delivery>
+            <div class="qc-delivery-option is-selected" data-ship-cost="-1" data-ship-label="-1,00 €">
+              <button class="qc-delivery-option__header" type="button">
+                <input class="qc-radio" type="radio" name="delivery" checked aria-label="Livraison magasin" />
+                <span class="qc-delivery-option__titles">
+                  <span class="qc-delivery-option__titlerow">
+                    <span class="qc-delivery-option__titleleft"><span class="qc-delivery-option__title">Livraison magasin</span></span>
+                    <span class="qc-delivery-option__price">-1,00 €</span>
+                  </span>
+                  <span class="qc-delivery-option__subtitle">Livraison estimée : <strong>vendredi 4 septembre</strong></span>
+                  <span class="qc-delivery-option__subtitle">Essayage possible et retour gratuit</span>
+                </span>
+              </button>
+              <div class="qc-delivery-option__body">
+                <div class="qc-address-box">
+                  <div class="qc-address-box__title"><strong>PROMOD Paris Levis</strong></div>
+                  <div class="qc-address-box__line">29 rue de Levis, 75017 Paris</div>
+                  <div class="qc-hours" data-hours>
+                    <button class="qc-address-box__toggle" type="button" aria-expanded="false">Horaires <svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"><path d="M4 6l4 4 4-4"/></svg></button>
+                    <div class="qc-hours__body">
+                      <div class="qc-hours__row is-today"><span class="qc-hours__day">mercredi</span><span class="qc-hours__time">10:00–19:30</span></div>
+                      <div class="qc-hours__row"><span class="qc-hours__day">jeudi</span><span class="qc-hours__time">10:00–19:30</span></div>
+                      <div class="qc-hours__row"><span class="qc-hours__day">vendredi</span><span class="qc-hours__time">10:00–19:30</span></div>
+                      <div class="qc-hours__row"><span class="qc-hours__day">samedi</span><span class="qc-hours__time">10:00–19:30</span></div>
+                      <div class="qc-hours__row"><span class="qc-hours__day">dimanche</span><span class="qc-hours__time">Fermé</span></div>
+                      <div class="qc-hours__row"><span class="qc-hours__day">lundi</span><span class="qc-hours__time">10:00–19:30</span></div>
+                      <div class="qc-hours__row"><span class="qc-hours__day">mardi</span><span class="qc-hours__time">10:00–19:30</span></div>
+                    </div>
+                  </div>
+                  <a class="qc-link" href="#">Modifier</a>
+                </div>
+              </div>
+            </div>
+            <div class="qc-delivery-option" data-ship-cost="0" data-ship-label="Offert">
+              <button class="qc-delivery-option__header" type="button">
+                <input class="qc-radio" type="radio" name="delivery" aria-label="Livraison en consigne 24/7" />
+                <span class="qc-delivery-option__titles">
+                  <span class="qc-delivery-option__titlerow">
+                    <span class="qc-delivery-option__titleleft"><span class="qc-delivery-option__title">Livraison en consigne 24/7</span></span>
+                    <span class="qc-delivery-option__price">Offert</span>
+                  </span>
+                  <span class="qc-delivery-option__subtitle">Accès 24h/24</span>
+                  <span class="qc-delivery-option__subtitle">Livraison estimée : <strong>lundi 7 septembre</strong></span>
+                </span>
+              </button>
+              <div class="qc-delivery-option__body">
+                <div class="qc-address-box">
+                  <div class="qc-address-box__title"><strong>PROMOD Paris Levis</strong></div>
+                  <div class="qc-address-box__line">29 rue de Levis, 75017 Paris</div>
+                  <div class="qc-hours" data-hours>
+                    <button class="qc-address-box__toggle" type="button" aria-expanded="false">Horaires <svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"><path d="M4 6l4 4 4-4"/></svg></button>
+                    <div class="qc-hours__body">
+                      <div class="qc-hours__row is-today"><span class="qc-hours__day">mercredi</span><span class="qc-hours__time">10:00–19:30</span></div>
+                      <div class="qc-hours__row"><span class="qc-hours__day">jeudi</span><span class="qc-hours__time">10:00–19:30</span></div>
+                      <div class="qc-hours__row"><span class="qc-hours__day">vendredi</span><span class="qc-hours__time">10:00–19:30</span></div>
+                      <div class="qc-hours__row"><span class="qc-hours__day">samedi</span><span class="qc-hours__time">10:00–19:30</span></div>
+                      <div class="qc-hours__row"><span class="qc-hours__day">dimanche</span><span class="qc-hours__time">Fermé</span></div>
+                      <div class="qc-hours__row"><span class="qc-hours__day">lundi</span><span class="qc-hours__time">10:00–19:30</span></div>
+                      <div class="qc-hours__row"><span class="qc-hours__day">mardi</span><span class="qc-hours__time">10:00–19:30</span></div>
+                    </div>
+                  </div>
+                  <a class="qc-link" href="#">Modifier</a>
+                </div>
+              </div>
+            </div>
+            <div class="qc-delivery-option" data-ship-cost="0" data-ship-label="Offert">
+              <button class="qc-delivery-option__header" type="button">
+                <input class="qc-radio" type="radio" name="delivery" aria-label="Livraison en relais" />
+                <span class="qc-delivery-option__titles">
+                  <span class="qc-delivery-option__titlerow">
+                    <span class="qc-delivery-option__titleleft"><span class="qc-delivery-option__title">Livraison en relais</span></span>
+                    <span class="qc-delivery-option__price">Offert</span>
+                  </span>
+                  <span class="qc-delivery-option__subtitle">Livraison estimée : <strong>lundi 7 septembre</strong></span>
+                </span>
+              </button>
+              <div class="qc-delivery-option__body">
+                <div class="qc-address-box">
+                  <div class="qc-address-box__title"><strong>PROMOD Paris Levis</strong></div>
+                  <div class="qc-address-box__line">29 rue de Levis, 75017 Paris</div>
+                  <div class="qc-hours" data-hours>
+                    <button class="qc-address-box__toggle" type="button" aria-expanded="false">Horaires <svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"><path d="M4 6l4 4 4-4"/></svg></button>
+                    <div class="qc-hours__body">
+                      <div class="qc-hours__row is-today"><span class="qc-hours__day">mercredi</span><span class="qc-hours__time">10:00–19:30</span></div>
+                      <div class="qc-hours__row"><span class="qc-hours__day">jeudi</span><span class="qc-hours__time">10:00–19:30</span></div>
+                      <div class="qc-hours__row"><span class="qc-hours__day">vendredi</span><span class="qc-hours__time">10:00–19:30</span></div>
+                      <div class="qc-hours__row"><span class="qc-hours__day">samedi</span><span class="qc-hours__time">10:00–19:30</span></div>
+                      <div class="qc-hours__row"><span class="qc-hours__day">dimanche</span><span class="qc-hours__time">Fermé</span></div>
+                      <div class="qc-hours__row"><span class="qc-hours__day">lundi</span><span class="qc-hours__time">10:00–19:30</span></div>
+                      <div class="qc-hours__row"><span class="qc-hours__day">mardi</span><span class="qc-hours__time">10:00–19:30</span></div>
+                    </div>
+                  </div>
+                  <a class="qc-link" href="#">Modifier</a>
+                </div>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <section class="checkout-section" style="margin-top: 24px">
+          <h2 class="checkout-section__title">Paiement</h2>
+          <div class="qc-payment" data-payment>
+            <div class="qc-pay-option"><button class="qc-pay-option__header" type="button"><input class="qc-radio" type="radio" name="pay" aria-label="Carte bancaire" /><span class="qc-pay-option__title">Carte bancaire</span><span class="qc-pay-option__spacer"></span><span class="qc-pay-option__marks"><span class="qc-brand qc-brand--visa">VISA</span><span class="qc-brand qc-brand--mc">MC</span></span></button><div class="qc-pay-option__body"></div></div>
+            <div class="qc-pay-option"><button class="qc-pay-option__header" type="button"><input class="qc-radio" type="radio" name="pay" aria-label="Alma" /><span class="qc-pay-option__title">Alma</span><span class="qc-pay-option__note">Paiement en 3x sans frais</span><span class="qc-pay-option__spacer"></span><span class="qc-brand qc-brand--alma">alma</span></button><div class="qc-pay-option__body"></div></div>
+            <div class="qc-pay-option"><button class="qc-pay-option__header" type="button"><input class="qc-radio" type="radio" name="pay" aria-label="Carte cadeau et avoir web Promod" /><span class="qc-pay-option__title">Carte cadeau et avoir web Promod</span><span class="qc-pay-option__spacer"></span><span class="qc-pay-option__chevron"><svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"><path d="M4 6l4 4 4-4"/></svg></span></button><div class="qc-pay-option__body"></div></div>
+            <div class="qc-pay-option"><button class="qc-pay-option__header" type="button"><input class="qc-radio" type="radio" name="pay" aria-label="PayPal ou PayPal 4X" /><span class="qc-pay-option__title">PayPal ou PayPal 4X</span><span class="qc-pay-option__spacer"></span><span class="qc-brand qc-brand--paypal">PayPal</span></button><div class="qc-pay-option__body"></div></div>
+            <div class="qc-pay-option"><button class="qc-pay-option__header" type="button"><input class="qc-radio" type="radio" name="pay" aria-label="Bancontact" /><span class="qc-pay-option__title">Bancontact</span><span class="qc-pay-option__spacer"></span><span class="qc-brand qc-brand--bc">Bancontact</span></button><div class="qc-pay-option__body"></div></div>
+          </div>
+        </section>
+
+        <div class="checkout-action">
+          <label class="checkout-cgv">
+            <input type="checkbox" class="qc-checkbox" checked />
+            <span>J'accepte les <a class="qc-link" href="#">conditions générales de vente</a></span>
+          </label>
+          <button class="qc-btn qc-btn--primary qc-btn--block" type="button">Payer 74,98 €</button>
+        </div>
+
+        <div class="qc-secured qc-secured--desktop">
+          <span class="qc-secured__label"><svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.3"><rect x="3.5" y="7" width="9" height="6" rx="1"/><path d="M5.5 7V5a2.5 2.5 0 0 1 5 0v2"/></svg> Paiement 100% sécurisé</span>
+          <span class="qc-secured__marks"><span class="qc-brand qc-brand--visa">VISA</span><span class="qc-brand qc-brand--mc">MC</span><span class="qc-brand">CB</span><span class="qc-brand qc-brand--amex">AMEX</span></span>
+        </div>
+      </div>
+
+      <!-- RECAP column (desktop) -->
+      <div class="checkout__recap">
+        <section class="qc-recap qc-recap--desktop" aria-label="Récapitulatif de commande">
+          <div data-recap-lines></div>
+          <hr class="qc-recap__divider" />
+          <dl class="qc-recap__summary">
+            <div class="qc-recap__row"><dt>Sous-total (2 articles)</dt><dd class="qc-recap__value--strong">75,98 €</dd></div>
+            <div class="qc-recap__row"><dt>Livraison</dt><dd data-ship-value>-1,00 €</dd></div>
+            <div class="qc-recap__row"><dt>Code promo</dt><dd><a class="qc-link" href="#">Ajouter</a></dd></div>
+          </dl>
+          <hr class="qc-recap__divider" />
+          <div class="qc-recap__total"><span>Total</span><span data-total-value>74,98 €</span></div>
+        </section>
+      </div>
+
+    </div>
+  </div>
+
+  <script>
+    const logoTpl = document.getElementById('qc-logo');
+    document.querySelectorAll('[data-logo]').forEach((s) => s.appendChild(logoTpl.content.cloneNode(true)));
+    const linesTpl = document.getElementById('recap-lines');
+    document.querySelectorAll('[data-recap-lines]').forEach((s) => s.appendChild(linesTpl.content.cloneNode(true)));
+
+    document.querySelectorAll('[data-collapsible] .qc-recap__toggle').forEach((btn) => {
+      btn.addEventListener('click', () => {
+        const p = btn.closest('[data-collapsible]');
+        const open = p.getAttribute('data-open') === 'true';
+        p.setAttribute('data-open', String(!open));
+        btn.setAttribute('aria-expanded', String(!open));
+      });
+    });
+    const wire = (groupSel, optSel, headSel) => document.querySelectorAll(groupSel).forEach((g) => {
+      const opts = [...g.querySelectorAll(optSel)];
+      opts.forEach((opt) => opt.querySelector(headSel).addEventListener('click', () => {
+        opts.forEach((o) => {
+          const on = o === opt;
+          o.classList.toggle('is-selected', on);
+          const r = o.querySelector(headSel + ' .qc-radio');
+          if (r) r.checked = on;
+        });
+      }));
+    });
+    wire('[data-delivery]', '.qc-delivery-option', '.qc-delivery-option__header');
+    wire('[data-payment]', '.qc-pay-option', '.qc-pay-option__header');
+
+    // Recap updates from the selected delivery option
+    const SUBTOTAL = 75.98;
+    const fmtEUR = (n) => n.toLocaleString('fr-FR', { minimumFractionDigits: 2, maximumFractionDigits: 2 }) + ' \u20ac';
+    function applyShipping(opt) {
+      const cost = parseFloat(opt.getAttribute('data-ship-cost') || '0');
+      const label = opt.getAttribute('data-ship-label') || 'Offert';
+      document.querySelectorAll('[data-ship-value]').forEach((el) => (el.textContent = label));
+      document.querySelectorAll('[data-total-value]').forEach((el) => (el.textContent = fmtEUR(SUBTOTAL + cost)));
+      const cta = document.querySelector('.qc-btn--primary');
+      if (cta) cta.textContent = 'Payer ' + fmtEUR(SUBTOTAL + cost);
+    }
+    document.querySelectorAll('[data-delivery] .qc-delivery-option').forEach((opt) => {
+      opt.querySelector('.qc-delivery-option__header').addEventListener('click', () => applyShipping(opt));
+    });
+    const _selDeliv = document.querySelector('[data-delivery] .qc-delivery-option.is-selected');
+    if (_selDeliv) applyShipping(_selDeliv);
+
+    // Instructions de livraison: collapsible textarea + char counter
+    document.querySelectorAll('[data-hours]').forEach((w) => {
+      const btn = w.querySelector('.qc-address-box__toggle');
+      btn.addEventListener('click', () => {
+        const open = w.classList.toggle('is-open');
+        btn.setAttribute('aria-expanded', String(open));
+      });
+    });
+    document.querySelectorAll('[data-instructions]').forEach((w) => {
+      const btn = w.querySelector('.qc-delivery-option__instructions');
+      btn.addEventListener('click', (e) => {
+        e.stopPropagation();
+        const open = w.classList.toggle('is-open');
+        btn.setAttribute('aria-expanded', String(open));
+      });
+      const ta = w.querySelector('.qc-textarea');
+      const cnt = w.querySelector('[data-count]');
+      if (ta && cnt) ta.addEventListener('input', () => { cnt.textContent = ta.value.length; });
+    });
+  </script>
+</body>
+</html>

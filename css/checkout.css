@@ -1,0 +1,84 @@
+/* =====================================================================
+   PAGE · Checkout (assemblage : header + form 2 colonnes + recap)
+   Reprend header / delivery / payment / recap. Tokens only.
+   ===================================================================== */
+
+.checkout {
+  min-height: 100vh;
+  background: var(--bg-neutral-default);
+  font-family: var(--type-family-body);
+  color: var(--type-body);
+}
+
+/* 2-column body, centered, with a vertical divider */
+.checkout__body {
+  display: grid;
+  grid-template-columns: minmax(0, 480px) minmax(0, 460px);
+  justify-content: center;
+  align-items: start;
+  gap: 0;
+}
+.checkout__form {
+  padding: var(--container-padding-xl) var(--container-padding-xl) 64px 0;
+  border-right: var(--border-width-default) solid var(--border-color-soft);
+  display: flex;
+  flex-direction: column;
+  gap: var(--gap-600);
+}
+.checkout__recap {
+  padding: var(--container-padding-xl) 0 64px var(--container-padding-xl);
+  position: sticky;
+  top: var(--container-padding-xl);
+  align-self: start;
+}
+
+/* section title (Livraison / Paiement) */
+.checkout-section__title {
+  font-size: 20px;
+  line-height: 1.2;
+  font-weight: var(--type-weight-500); /* semi-bold (600) */
+  color: var(--type-body);
+  margin-bottom: var(--gap-500);
+}
+
+/* action block: CGV checkbox + primary button */
+.checkout-action {
+  display: flex;
+  flex-direction: column;
+  gap: var(--gap-500);
+}
+.checkout-cgv {
+  display: flex;
+  align-items: center;
+  gap: var(--gap-300);
+  font-size: var(--type-size-body-02);
+  color: var(--type-body);
+}
+
+/* the mobile collapsible recap is hidden on desktop, and vice-versa */
+.checkout__recap-mobile { display: none; }
+
+@media (max-width: 900px) {
+  /* header: avoid the desktop stepper cramming on a narrow row */
+  .checkout .qc-header--desktop { grid-template-columns: auto 1fr auto; }
+  .checkout .qc-header__center { display: none; }
+
+  .checkout__body {
+    grid-template-columns: 1fr;
+    max-width: 460px;
+    margin: 0 auto;
+  }
+  .checkout__form {
+    padding: var(--container-margins-s);
+    border-right: none;
+    order: 2;
+  }
+  .checkout__recap {
+    display: none; /* desktop recap hidden on mobile */
+  }
+  .checkout__recap-mobile {
+    display: block;
+    order: 1;
+    padding: var(--container-margins-s) var(--container-margins-s) 0;
+  }
+}

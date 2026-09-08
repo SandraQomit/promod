@@ -1,0 +1,258 @@
+/* =====================================================================
+   TOKENS — THE CSS TABLE  (source: Figma « Core Checkout Library »)
+   ---------------------------------------------------------------------
+   This is the single source of truth for the look of every component.
+   Extracted 1:1 from Figma variables (get_variable_defs on the Header).
+   To re-skin the whole library: replace ONLY the values below.
+   Component CSS must reference these var(--…) — never hard-coded values.
+   ===================================================================== */
+
+:root {
+  /* ---- Color · background ---------------------------------------- */
+  --bg-neutral-default: #ffffff;      /* bg/neutral/default */
+
+  /* ---- Color · text / foreground --------------------------------- */
+  --type-color-body: #000000;         /* type/color/body */
+  --type-color-mention: #666666;      /* type/color/mention (secondary) */
+  --icon-color-primary: #000000;      /* icon/color/primary */
+
+  /* ---- Color · border -------------------------------------------- */
+  --border-color-default: #929292;    /* border/color/default */
+  --border-color-soft: #cccccc;       /* border/color/soft */
+  --border-color-ultra-soft: #dfdfdf; /* border/color/ultra soft */
+
+  /* ---- Color · brand (logo mark; from DS primary/600) ------------ */
+  --color-primary: #ff6b4a;
+  --color-on-primary: #ffffff;
+
+  /* ---- Typography · family --------------------------------------- */
+  --type-family-body: "Inter", system-ui, -apple-system, sans-serif;
+  --type-family-brand: "PP Fraktion Sans", Georgia, "Times New Roman", serif;
+
+  /* ---- Typography · size ----------------------------------------- */
+  --type-size-body-large: 16px;       /* type/size/body large & body 01 */
+  --type-size-body-01: 16px;
+  --type-size-body-02: 14px;          /* type/size/body 02 & body small */
+  --type-size-body-small: 14px;
+
+  /* ---- Typography · weight --------------------------------------- */
+  --type-weight-300: 400;             /* regular */
+  --type-weight-500: 600;             /* semi-bold */
+  --type-weight-700: 700;             /* bold */
+
+  /* ---- Typography · line-height ---------------------------------- */
+  --line-height-body-large: 1.4;
+  --line-height-body-small: 1.5;
+
+  /* ---- Spacing · container margins ------------------------------- */
+  --container-margins-xs: 12px;       /* container/margins/XS */
+  --container-margins-s: 16px;        /* container/margins/S */
+  --container-margins-m: 20px;        /* container/margins/M */
+  --container-margins-l: 24px;        /* container/margins/L */
+
+  /* ---- Spacing · padding ----------------------------------------- */
+  --padding-600: 24px;                /* padding/600 */
+  --block-padding-y: 12px;            /* Theme/Block/block-padding-y */
+
+  /* ---- Sizing ---------------------------------------------------- */
+  --container-height-5xl: 56px;       /* container/height/5XL */
+  --header-height-desktop: 88px;      /* Figma header frame (desktop) */
+  --header-height-mobile: 90px;       /* Figma header frame (mobile) */
+
+  /* ---- Border ---------------------------------------------------- */
+  --border-width-default: 1px;        /* border/width/default */
+
+  /* ===================================================================
+     Added by component · recap-order
+     =================================================================== */
+
+  /* ---- Color · foreground / text --------------------------------- */
+  --foreground-primary: #000000;      /* foreground/primary */
+  --foreground-secondary: #666666;    /* foreground/secondary */
+  --foreground-on-secondary: #000000; /* foreground/on secondary */
+  --type-body: #1a1a1a;               /* type/body */
+  --type-information: #525b66;        /* type/information */
+  --link-level1-default: #000000;     /* link/level 1/default */
+
+  /* ---- Color · background ---------------------------------------- */
+  --bg-neutral-muted: #f5f5f5;        /* bg/neutral/muted */
+  --bg-neutral-subtle: #f2f2f2;       /* bg/neutral/subtle */
+  --bg-neutral-darkest: #000000;      /* bg/neutral/darkest */
+
+  /* ---- Color · border -------------------------------------------- */
+  --border-color-inverted: #ffffff;   /* border/color/inverted */
+
+  /* ---- Color · feedback ------------------------------------------ */
+  --feedback-information-bg: #e7f1ff;     /* feedback/information/bg */
+  --feedback-information-border: #345e98; /* feedback/information/border */
+  --feedback-error-bg: #feeaea;           /* feedback/error/bg */
+  --feedback-error-text: #c72724;         /* feedback/error/text */
+
+  /* ---- Color · brand accent (loyalty "B" badge) ------------------ */
+  --color-loyalty: var(--color-primary);
+
+  /* ---- Typography · mention (12px) ------------------------------- */
+  --type-family-mention: "Inter", system-ui, sans-serif;
+  --type-size-mention: 12px;          /* type/size/mention */
+  --type-weight-600: 700;             /* bold */
+
+  /* ---- Spacing --------------------------------------------------- */
+  --container-margins-none: 0;        /* container/margins/none */
+  --container-margins-3xs: 4px;       /* container/margins/3XS */
+  --container-margins-2xs: 8px;       /* container/margins/2XS */
+  --container-margins-5xl: 56px;      /* container/margins/5XL */
+  --container-padding-xl: 32px;       /* container/padding/XL */
+  --scale-12: 12px;                   /* scale/12 */
+  --gap-200: 4px;                     /* gap/200 */
+  --gap-500: 16px;                    /* gap/500 */
+  --border-weight-xs: 1px;            /* border/weight/XS */
+
+  /* ---- Radius ---------------------------------------------------- */
+  --radius-100: 2px;                  /* radius/100 */
+  --border-radius-default: 4px;       /* border/radius/default */
+  --border-radius-full: 1000px;       /* border/radius/full & radius/full */
+
+  /* ===================================================================
+     Added by component · Delivery
+     =================================================================== */
+
+  /* ---- Color / border -------------------------------------------- */
+  --border-color-strong: #000000;     /* border/color/strong */
+  --border-weight-s: 1.5px;           /* border/weight/S */
+
+  /* ---- Spacing / gap --------------------------------------------- */
+  --gap-300: 8px;                     /* gap/300 */
+  --gap-400: 12px;                    /* gap/400 */
+  --gap-600: 24px;                    /* gap/600 */
+  --padding-500: 16px;                /* padding/500 */
+  --scale-400: 8px;                   /* scale/400 */
+
+  /* ---- Radius ---------------------------------------------------- */
+  --radius-200: 4px;                  /* radius/200 */
+  --border-radius-s: 4px;             /* border/radius/s */
+  --radius-card: 8px;                 /* card corner (scale/400) */
+
+  /* ---- Radio button ---------------------------------------------- */
+  --radio-height: 16px;                     /* radio button/height */
+  --radio-radius: var(--border-radius-full);/* radio button/radius */
+  --radio-border-width: 1px;                /* radio button/border/width/default */
+  --radio-bg-unchecked: #ffffff;            /* radio button/bg/active/unchecked */
+  --radio-border-checked: #000000;          /* radio button/border/active/unchecked */
+
+  /* ---- Input ----------------------------------------------------- */
+  --input-height-l: 48px;                   /* input/height/L */
+  --input-border-radius: 4px;               /* input/border/radius */
+  --input-border-width: 1px;                /* input/border/width/default */
+  --input-bg-default: #ffffff;              /* input/bg/default */
+  --input-border-color-default: #929292;    /* input/border/color/default */
+  --input-placeholder: #666666;             /* input/type/placeholder/default */
+  --input-text: #000000;                    /* input/type/principal/default */
+  --input-padding-x: 12px;                  /* input/spacing/padding/X */
+  --input-gap-small: 4px;                   /* input/spacing/gap/small */
+  --input-gap-large: 12px;                  /* input/spacing/gap/large */
+
+  /* ---- Button · tertiary ----------------------------------------- */
+  --button-height-l: 48px;                        /* button/height/L */
+  --button-gap: 8px;                              /* button/spacing/gap */
+  --button-padding-x-l: 24px;                     /* button/spacing/padding X/L */
+  --button-tertiary-bg: #ebebeb;                  /* button/tertiary/bg/default */
+  --button-tertiary-border-color: #ebebeb;        /* button/tertiary/border/color/default */
+  --button-tertiary-text: #000000;                /* button/tertiary/type/color/on default */
+  --button-tertiary-radius: 4px;                  /* button/tertiary/border/radius/default */
+  --button-tertiary-border-width: 1px;            /* button/tertiary/border/width/default */
+
+  /* ===================================================================
+     Added by component · Payment Modules
+     =================================================================== */
+
+  /* ---- Input · filled state -------------------------------------- */
+  --input-bg-filled: #eff6ff;             /* input/bg/filled */
+  --input-border-color-filled: #929292;   /* input/border/color/filled */
+  --input-border-width-filled: 1px;       /* input/border/width/filled */
+  --input-border-disabled: #d0d0d0;       /* Theme/Colors/input-border-disabled */
+
+  /* ---- Feedback / status colors ---------------------------------- */
+  --icon-success: #5d9a51;                /* icon/success */
+  --type-success: #46743d;                /* type/success */
+  --icon-color-action-secondary: #666666; /* icon/color/action secondary */
+
+  /* ---- Neutrals -------------------------------------------------- */
+  --border-color-muted: #999999;          /* border/color/muted */
+  --bg-neutral-emphasized: #cccccc;       /* bg/neutral/emphasized */
+  --type-disabled: #cccccc;               /* type/disabled */
+  --type-color-on-disabled: #929292;      /* type/color/on disabled */
+  --border-width-selected: 1.5px;         /* border/width/selected */
+
+  /* ---- Toggle switch --------------------------------------------- */
+  --toggle-bg-active: #000000;            /* toggle/bg/rectangle/active */
+
+  /* ---- Button · small size --------------------------------------- */
+  --button-height-s: 32px;                /* button/height/S */
+  --button-padding-x-s: 12px;             /* button/spacing/padding X/S */
+}
+
+/* ---------------------------------------------------------------------
+   Composite text styles (Figma text styles, built from the tokens above)
+   Use via the helper classes below on any element.
+   ------------------------------------------------------------------- */
+.t-body-large {
+  font-family: var(--type-family-body);
+  font-size: var(--type-size-body-large);
+  line-height: var(--line-height-body-large);
+  font-weight: var(--type-weight-300);
+}
+.t-body-large-semibold {
+  font-family: var(--type-family-body);
+  font-size: var(--type-size-body-large);
+  line-height: var(--line-height-body-large);
+  font-weight: var(--type-weight-500);
+}
+.t-body-small {
+  font-family: var(--type-family-body);
+  font-size: var(--type-size-body-small);
+  line-height: var(--line-height-body-small);
+  font-weight: var(--type-weight-300);
+}
+.t-body-small-semibold {
+  font-family: var(--type-family-body);
+  font-size: var(--type-size-body-small);
+  line-height: var(--line-height-body-small);
+  font-weight: var(--type-weight-500);
+}
+.t-body-small-bold {
+  font-family: var(--type-family-body);
+  font-size: var(--type-size-body-small);
+  line-height: var(--line-height-body-small);
+  font-weight: var(--type-weight-600);
+}
+.t-body-large-bold {
+  font-family: var(--type-family-body);
+  font-size: var(--type-size-body-large);
+  line-height: var(--line-height-body-large);
+  font-weight: var(--type-weight-600);
+}
+.t-body-small-underlined {
+  font-family: var(--type-family-body);
+  font-size: var(--type-size-body-small);
+  line-height: var(--line-height-body-small);
+  font-weight: var(--type-weight-300);
+  text-decoration: underline;
+}
+.t-mention {
+  font-family: var(--type-family-mention);
+  font-size: var(--type-size-mention);
+  line-height: var(--line-height-body-large);
+  font-weight: var(--type-weight-300);
+}
+.t-mention-bold {
+  font-family: var(--type-family-mention);
+  font-size: var(--type-size-mention);
+  line-height: var(--line-height-body-large);
+  font-weight: var(--type-weight-600);
+}
+.t-mention-crossed {
+  font-family: var(--type-family-mention);
+  font-size: var(--type-size-mention);
+  font-weight: var(--type-weight-300);
+  text-decoration: line-through;
+}

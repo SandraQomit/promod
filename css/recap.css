@@ -1,0 +1,266 @@
+/* =====================================================================
+   COMPONENT · recap-order (récapitulatif de commande)
+   Variants: desktop (panel) · mobile (collapsible, Open=on/off)
+   All values from tokens.css. No hard-coded values.
+   ===================================================================== */
+
+.qc-recap {
+  font-family: var(--type-family-body);
+  color: var(--type-body);
+  box-sizing: border-box;
+}
+
+/* ---- Line items ------------------------------------------------- */
+.qc-recap__items {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+  gap: var(--container-margins-l);
+}
+.qc-recap__item {
+  display: grid;
+  grid-template-columns: 64px 1fr auto;
+  gap: var(--gap-500);
+  align-items: start;
+}
+.qc-recap__thumb {
+  position: relative;
+  width: 64px;
+  height: 64px;
+  border-radius: var(--border-radius-default);
+  background: var(--bg-neutral-muted) center/cover no-repeat;
+  overflow: hidden;
+}
+.qc-recap__qty {
+  position: absolute;
+  top: 4px;
+  right: 4px;
+  min-width: 18px;
+  height: 18px;
+  padding: 0 4px;
+  border-radius: var(--border-radius-full);
+  background: var(--bg-neutral-darkest);
+  color: var(--border-color-inverted);
+  font-family: var(--type-family-mention);
+  font-size: 10px;
+  font-weight: var(--type-weight-600);
+  display: grid;
+  place-items: center;
+  line-height: 1;
+}
+.qc-recap__info {
+  display: flex;
+  flex-direction: column;
+  gap: var(--container-margins-3xs);
+  min-width: 0;
+}
+.qc-recap__title-row {
+  display: flex;
+  align-items: center;
+  gap: var(--container-margins-2xs);
+}
+.qc-recap__title {
+  font-size: var(--type-size-body-01);
+  line-height: var(--line-height-body-large);
+  font-weight: var(--type-weight-500);
+  color: var(--type-body);
+}
+.qc-recap__variant {
+  font-size: var(--type-size-body-02);
+  line-height: var(--line-height-body-small);
+  color: var(--foreground-secondary);
+}
+.qc-recap__price {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  gap: var(--gap-200);
+  white-space: nowrap;
+}
+.qc-recap__price-note {
+  font-size: var(--type-size-mention);
+  color: var(--foreground-secondary);
+}
+.qc-recap__price-note--struck { text-decoration: line-through; }
+.qc-recap__price-main {
+  font-size: var(--type-size-body-01);
+  line-height: var(--line-height-body-large);
+  color: var(--type-body);
+}
+
+/* Discount badge (e.g. 20%) */
+.qc-badge-discount {
+  font-family: var(--type-family-mention);
+  font-size: var(--type-size-mention);
+  font-weight: var(--type-weight-600);
+  color: var(--feedback-error-text);
+  background: var(--feedback-error-bg);
+  border-radius: var(--radius-100);
+  padding: 2px 4px;
+  line-height: 1;
+}
+
+/* ---- Links ------------------------------------------------------ */
+.qc-link {
+  color: var(--link-level1-default);
+  text-decoration: underline;
+  font-size: var(--type-size-body-02);
+  line-height: var(--line-height-body-small);
+  width: fit-content;
+}
+
+/* ---- Dividers --------------------------------------------------- */
+.qc-recap__divider {
+  border: none;
+  border-top: var(--border-width-default) solid var(--border-color-soft);
+  margin: var(--container-margins-l) 0;
+}
+
+/* ---- Summary ---------------------------------------------------- */
+.qc-recap__summary {
+  display: flex;
+  flex-direction: column;
+  gap: var(--container-margins-xs);
+  margin: 0;
+}
+.qc-recap__row {
+  display: flex;
+  align-items: baseline;
+  justify-content: space-between;
+  gap: var(--container-margins-s);
+}
+.qc-recap__row dt,
+.qc-recap__row .qc-recap__label {
+  font-size: var(--type-size-body-02);
+  color: var(--type-body);
+  margin: 0;
+}
+.qc-recap__row dd,
+.qc-recap__row .qc-recap__value {
+  font-size: var(--type-size-body-02);
+  color: var(--type-body);
+  margin: 0;
+  text-align: right;
+}
+.qc-recap__value--strong { font-weight: var(--type-weight-600); }
+
+/* ---- Total ------------------------------------------------------ */
+.qc-recap__total {
+  display: flex;
+  align-items: baseline;
+  justify-content: space-between;
+  font-size: var(--type-size-body-01);
+  font-weight: var(--type-weight-600);
+  color: var(--type-body);
+}
+
+/* ---- Loyalty box (info) ----------------------------------------- */
+.qc-loyalty {
+  display: flex;
+  flex-direction: column;
+  gap: var(--container-margins-3xs);
+  background: var(--feedback-information-bg);
+  border: var(--border-width-default) solid var(--feedback-information-border);
+  border-radius: var(--border-radius-default);
+  padding: var(--container-margins-xs);
+}
+.qc-loyalty__row {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: var(--container-margins-s);
+}
+.qc-loyalty__label,
+.qc-loyalty__pts {
+  font-size: var(--type-size-body-02);
+  color: var(--foreground-secondary);
+}
+.qc-loyalty__title {
+  font-size: var(--type-size-body-02);
+  font-weight: var(--type-weight-600);
+  color: var(--type-body);
+}
+.qc-loyalty__gain {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--container-margins-2xs);
+  font-size: var(--type-size-body-02);
+  font-weight: var(--type-weight-600);
+  color: var(--type-body);
+}
+.qc-loyalty__badge {
+  display: grid;
+  place-items: center;
+  width: 18px;
+  height: 18px;
+  border-radius: var(--border-radius-full);
+  background: var(--color-loyalty);
+  color: var(--color-on-primary);
+  font-size: 11px;
+  font-weight: var(--type-weight-600);
+}
+
+/* =====================================================================
+   DESKTOP variant
+   ===================================================================== */
+.qc-recap--desktop {
+  background: var(--bg-neutral-default);
+  width: 100%;
+  max-width: 460px;
+}
+
+/* =====================================================================
+   MOBILE variant (collapsible)
+   ===================================================================== */
+.qc-recap--mobile {
+  background: var(--bg-neutral-subtle);
+  border-radius: var(--border-radius-default);
+  padding: var(--container-margins-s);
+  display: flex;
+  flex-direction: column;
+  gap: var(--container-margins-s);
+}
+.qc-recap__toggle {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  width: 100%;
+  gap: var(--container-margins-s);
+}
+.qc-recap__toggle-title {
+  font-size: var(--type-size-body-01);
+  font-weight: var(--type-weight-600);
+  color: var(--type-body);
+}
+.qc-recap__toggle-right {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--container-margins-2xs);
+}
+.qc-recap__toggle-total {
+  font-size: var(--type-size-body-01);
+  font-weight: var(--type-weight-600);
+  color: var(--type-body);
+}
+.qc-recap__toggle svg {
+  width: 16px;
+  height: 16px;
+  color: var(--icon-color-primary);
+  transition: transform 0.2s ease;
+}
+.qc-recap__body {
+  display: flex;
+  flex-direction: column;
+  gap: var(--container-margins-s);
+}
+
+/* open / collapsed states */
+.qc-recap--mobile[data-open="true"] .qc-recap__toggle-total { display: none; }
+.qc-recap--mobile[data-open="true"] .qc-recap__toggle svg { transform: rotate(180deg); }
+.qc-recap--mobile[data-open="false"] .qc-recap__body { display: none; }
+
+@media (prefers-reduced-motion: reduce) {
+  .qc-recap__toggle svg { transition: none; }
+}
