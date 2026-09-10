@@ -1,0 +1,97 @@
+/* =====================================================================
+   Promod Club — loyalty upsell card (checkout)
+   ===================================================================== */
+.promod-club {
+  border: var(--border-width-default) solid var(--border-color-soft);
+  border-radius: var(--radius-card);
+  padding: 20px;
+  margin-bottom: 24px;
+  background: var(--bg-neutral-default, #fff);
+}
+
+.promod-club__logo {
+  display: flex;
+  align-items: baseline;
+  gap: 2px;
+  font-family: var(--type-family-brand), sans-serif;
+  font-size: 26px;
+  font-weight: 800;
+  letter-spacing: -0.5px;
+  line-height: 1;
+}
+.promod-club__logo-solid { color: #e8461e; }
+.promod-club__logo-stripe {
+  color: transparent;
+  background-image: repeating-linear-gradient(
+    90deg,
+    #e8461e 0 2px,
+    transparent 2px 4px
+  );
+  -webkit-background-clip: text;
+  background-clip: text;
+}
+
+.promod-club__row {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  margin-top: 16px;
+}
+.promod-club__points {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  flex: none;
+}
+.promod-club__points-chip {
+  padding: 6px 14px;
+  border-radius: 8px;
+  background: #f7dccf;
+  color: #1a1a1a;
+  font-size: 22px;
+  font-weight: 700;
+  line-height: 1;
+}
+.promod-club__points-label {
+  margin-top: 4px;
+  font-size: 13px;
+  color: var(--foreground-secondary);
+}
+.promod-club__text {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+.promod-club__headline {
+  font-size: 16px;
+  font-weight: 700;
+  color: var(--type-body);
+}
+.promod-club__link {
+  font-size: 15px;
+  color: var(--type-body);
+  text-decoration: underline;
+  align-self: flex-start;
+}
+
+.promod-club__cta {
+  display: block;
+  width: 100%;
+  margin-top: 16px;
+  padding: 14px;
+  border: 1.5px solid var(--type-body);
+  border-radius: var(--radius-card);
+  background: transparent;
+  color: var(--type-body);
+  font-family: var(--type-family-brand), sans-serif;
+  font-size: 15px;
+  font-weight: 700;
+  letter-spacing: 0.4px;
+  text-transform: uppercase;
+  cursor: pointer;
+  transition: background 0.15s ease, color 0.15s ease;
+}
+.promod-club__cta:hover {
+  background: var(--type-body);
+  color: #fff;
+}

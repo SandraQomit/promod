@@ -12,6 +12,7 @@
   <link rel="stylesheet" href="css/delivery.css" />
   <link rel="stylesheet" href="css/payment.css" />
   <link rel="stylesheet" href="css/checkout.css" />
+  <link rel="stylesheet" href="css/loyalty.css" />
   <!-- Thème Promod : surcharge tokens.css. -->
   <link rel="stylesheet" href="css/theme-promod.css" />
 </head>
@@ -86,16 +87,57 @@
       <!-- FORM column -->
       <div class="checkout__form">
 
+        <aside class="promod-club">
+          <div class="promod-club__logo">
+            <span class="promod-club__logo-solid">PROMOD</span><span class="promod-club__logo-stripe">CLUB</span>
+          </div>
+          <div class="promod-club__row">
+            <div class="promod-club__points">
+              <span class="promod-club__points-chip">+116</span>
+              <span class="promod-club__points-label">Points</span>
+            </div>
+            <div class="promod-club__text">
+              <span class="promod-club__headline">Vous auriez pu gagner 116 points</span>
+              <a class="promod-club__link" href="#">En savoir plus</a>
+            </div>
+          </div>
+          <button class="promod-club__cta" type="button">Adhérer pour 2 €</button>
+        </aside>
+
         <section class="checkout-section">
           <h2 class="checkout-section__title">Livraison</h2>
           <div class="qc-delivery" data-delivery>
+            <div class="qc-delivery-option" data-ship-cost="0" data-ship-label="Offert">
+              <button class="qc-delivery-option__header" type="button">
+                <input class="qc-radio" type="radio" name="delivery" aria-label="Livraison à domicile" />
+                <span class="qc-delivery-option__titles">
+                  <span class="qc-delivery-option__titlerow">
+                    <span class="qc-delivery-option__titleleft"><span class="qc-delivery-option__title">Livraison à domicile</span></span>
+                    <span class="qc-delivery-option__price">Offert</span>
+                  </span>
+                  <span class="qc-delivery-option__subtitle">Livraison estimée : <strong>lundi 7 septembre</strong></span>
+                </span>
+              </button>
+            </div>
+            <div class="qc-delivery-option" data-ship-cost="9" data-ship-label="9,00 €">
+              <button class="qc-delivery-option__header" type="button">
+                <input class="qc-radio" type="radio" name="delivery" aria-label="Livraison à domicile express" />
+                <span class="qc-delivery-option__titles">
+                  <span class="qc-delivery-option__titlerow">
+                    <span class="qc-delivery-option__titleleft"><span class="qc-delivery-option__title">Livraison à domicile express</span></span>
+                    <span class="qc-delivery-option__price">9,00 €</span>
+                  </span>
+                  <span class="qc-delivery-option__subtitle">Livraison estimée : <strong>vendredi 4 septembre</strong></span>
+                </span>
+              </button>
+            </div>
             <div class="qc-delivery-option is-selected" data-ship-cost="-1" data-ship-label="-1,00 €">
               <button class="qc-delivery-option__header" type="button">
                 <input class="qc-radio" type="radio" name="delivery" checked aria-label="Livraison magasin" />
                 <span class="qc-delivery-option__titles">
                   <span class="qc-delivery-option__titlerow">
                     <span class="qc-delivery-option__titleleft"><span class="qc-delivery-option__title">Livraison magasin</span></span>
-                    <span class="qc-delivery-option__price">-1,00 €</span>
+                    <span class="qc-delivery-option__price"><span class="qc-tag qc-tag--save">-1,00 €</span></span>
                   </span>
                   <span class="qc-delivery-option__subtitle">Livraison estimée : <strong>vendredi 4 septembre</strong></span>
                   <span class="qc-delivery-option__subtitle">Essayage possible et retour gratuit</span>

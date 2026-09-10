@@ -69,6 +69,17 @@
   color: var(--type-body);
   white-space: nowrap;
 }
+/* Savings pill (e.g. -1,00 €) */
+.qc-tag--save {
+  display: inline-block;
+  padding: 4px 12px;
+  border-radius: 999px;
+  background: #94dcaa;
+  color: #0f3d24;
+  font-weight: var(--type-weight-700, 700);
+  font-size: var(--type-size-body-02);
+  white-space: nowrap;
+}
 .qc-delivery-option__subtitle {
   font-size: var(--type-size-body-02);
   color: var(--foreground-secondary);
