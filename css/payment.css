@@ -210,6 +210,55 @@
 .qc-brand--gift { color: #e2001a; border-color: #e2001a; }
 .qc-brand--bc { color: #005498; border-color: #005498; }
 
+/* ---- Real brand logos (payment marks) --------------------------- */
+.qc-paymark {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  height: 26px;
+  min-width: 40px;
+  padding: 0 6px;
+  border-radius: 4px;
+  border: var(--border-width-default) solid var(--border-color-soft);
+  background: #fff;
+}
+.qc-paymark svg { display: block; }
+.pm-visa {
+  font-family: Arial, Helvetica, sans-serif;
+  font-style: italic;
+  font-weight: 800;
+  font-size: 13px;
+  letter-spacing: 0.5px;
+  color: #1a1f71;
+}
+.pm-alma {
+  font-family: var(--type-family-body), Arial, sans-serif;
+  font-weight: 700;
+  font-size: 13px;
+  color: #fa5022;
+}
+.pm-paypal {
+  display: inline-flex;
+  align-items: center;
+  gap: 3px;
+  font-family: Arial, Helvetica, sans-serif;
+  font-style: italic;
+  font-weight: 800;
+  font-size: 12px;
+  letter-spacing: -0.2px;
+}
+.pm-paypal .pm-paypal__a { color: #003087; }
+.pm-paypal .pm-paypal__b { color: #009cde; }
+.pm-bc {
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+  font-family: Arial, Helvetica, sans-serif;
+  font-weight: 800;
+  font-size: 12px;
+  color: #004e9e;
+}
+
 /* ---- Secured payment block -------------------------------------- */
 .qc-secured {
   display: flex;
