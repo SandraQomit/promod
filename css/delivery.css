@@ -86,7 +86,7 @@
 }
 .qc-delivery-option__subtitle strong {
   color: var(--type-body);
-  font-weight: var(--type-weight-600);
+  font-weight: var(--type-weight-500);
 }
 .qc-delivery-option__body {
   display: flex;
